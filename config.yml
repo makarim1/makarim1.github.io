@@ -1,0 +1,25 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "works"
+    label: "কাজ"
+    files:
+      - name: "works"
+        label: "নির্বাচিত কাজ"
+        file: "data/works.json"
+        format: "json"
+        fields:
+          - label: "কাজের তালিকা"
+            name: "works"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "শিরোনাম", name: "title", widget: "string"}
+              - {label: "বিবরণ", name: "description", widget: "text"}
+              - {label: "লিংক", name: "url", widget: "string", required: false}
+              - {label: "আইকন", name: "icon", widget: "string", default: "📰"}
